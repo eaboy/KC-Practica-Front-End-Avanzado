@@ -1,0 +1,35 @@
+// Font families
+$main-font-family: 'Scope One', serif;
+$titles-font-family: 'Dosis', sans-serif;
+$body-font-family: $main-font-family;
+
+// Font sizes
+$font-size-base: 15px;
+$font-size-small: $font-size-base - 5px;
+$font-size-large: $font-size-base + 5px;
+$font-size-h1: $font-size-base + 15px;
+$font-size-h2: $font-size-base + 12px;
+$font-size-h3: $font-size-base + 9px;
+$font-size-h4: $font-size-base + 6px;
+$font-size-h5: $font-size-base + 3px;
+$font-size-h6: $font-size-base;
+
+// Base colors
+$color-hot-water: #0CA5B0;
+$color-cofee-beans: #4E3F30;
+$color-milk: #FEFEEB;
+$color-sugar: #F8F4E4;
+$color-stirring-spoon: #A5B3AA;
+
+// Main components colors
+$main-text-color: $color-coffe-beans;
+$links-colors: $color-stirring-spoon;
+$bg-primary-color: $color-milk;
+$bg-secondary-color: $color-sugar;
+$titles-color: $color-hot-water;
+
+// Responsive
+$mobile-portrait-width: 375px;
+$mobile-landscape-width: 767px;
+$tablet-portrait-width: 768px;
+$tablet-landscape-width: 1024px;
