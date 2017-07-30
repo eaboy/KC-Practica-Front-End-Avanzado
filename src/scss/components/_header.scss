@@ -1,0 +1,21 @@
+.web-header {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    background-color: $bg-secondary-color;
+    width: 100%;
+}
+
+.web-title {
+    float: left;
+    font-size: $font-size-h1;
+    color: $titles-color;
+    font-family: $titles-font-family;
+}
+
+.header-actions {
+    float: right;
+    .sign-in{
+        color: $titles-color;
+    }
+}

@@ -35,7 +35,7 @@ gulp.task('sass', function(){
     gulp.src('src/scss/style.scss') // cargamos el archivo style.scss
         .pipe(sourcemaps.init()) // comienza a capturar los soucemaps
         .pipe(sass().on('error', function(error) {
-            return notify('Error SASS').write(error);
+            return notify().write(error);
         })) // lo compilamos con gulp-sacc
         .pipe(postcss([
             autoprefixer(), // transforma el CSS dándole compatibilidad a versiones antiguas
@@ -64,7 +64,7 @@ gulp.task('js', function(){
                 .transform('babelify', {presets: ['es2015']}) // traduce nuestro código de ES6 a ES5
                 .bundle() // compilamos el archivo
                 .on('error', function(error){
-                    return notify('Error JS').write(error);
+                    return notify().write(error);
                 });
         }))
             .pipe(buffer()) // convertimos a buffer para que funcione el siguiente pipe
