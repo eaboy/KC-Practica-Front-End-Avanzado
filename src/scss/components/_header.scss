@@ -1,4 +1,5 @@
 .web-header {
+    box-sizing: border-box;
     padding: 10px;
     position: absolute;
     top: 0;
@@ -8,14 +9,61 @@
 
 .web-title {
     float: left;
-    font-size: $font-size-h1;
+    font-size: $font-size-h2;
     color: $titles-color;
     font-family: $titles-font-family;
 }
 
 .header-actions {
+    line-height: $font-size-h2;
     float: right;
     .sign-in{
+        font-size: $font-size-h6;
         color: $titles-color;
+        text-decoration: none;
     }
+    .search{
+        padding: 5px;
+        color: $titles-color;
+        font-size: $font-size-h4;
+    }
+}
+
+.search-box {
+
+    #search {
+        border: none;
+        border-bottom: 1px solid $titles-color;
+        background: none;
+        font-size: $font-size-h4;
+        color: $titles-color;
+        font-family: $main-font-family;
+        padding-top: 10px;
+        width: 100%;
+        &::placeholder {
+            color: $titles-color;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.search-form {
+    display: none;
+}
+
+.search-group {
+    position: relative;
+}
+
+.search-submit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: none;
+    background: none;
+    color: $titles-color;
+    font-size: $font-size-h4;
+    margin-bottom: 5px;
 }
