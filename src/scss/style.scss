@@ -1,6 +1,9 @@
 @import "reset";
 @import url('https://fonts.googleapis.com/css?family=Dosis|Scope+One');
 @import "variables";
+@import "responsive-utils";
 @import "html-tags";
-@import "components/header";
 @import "fa-scss/font-awesome.scss"; // Import fontawesome scss
+
+
+@import "components/header";

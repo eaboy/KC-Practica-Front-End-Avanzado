@@ -62,6 +62,25 @@
             text-decoration: underline;
         }
     }
+
+    @include if-tablet-portrait {
+        text-align: center;
+
+        #username, #password {
+            width: 40%;
+            margin: 0 10px;
+        }
+
+        #search {
+            width: 50%;
+            margin-left: calc(50% - 60px);
+        }
+
+        .forgot-password, .register {
+            float: right;
+            margin: 0 10px;
+        }
+    }
 }
 
 .search-group {
