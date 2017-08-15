@@ -17,6 +17,7 @@
 .header-actions {
     line-height: $font-size-h2;
     float: right;
+    z-index: 1;
     .sign-in{
         font-size: $font-size-h6;
         color: $titles-color;
@@ -49,12 +50,9 @@
     }
 }
 
-.search-form {
-    display: none;
-}
-
 .search-group {
     position: relative;
+    display: none;
 }
 
 .search-submit {
