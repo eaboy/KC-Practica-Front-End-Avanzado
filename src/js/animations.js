@@ -6,11 +6,11 @@ export default class Animations {
         this.element = $(selector);
     }
 
-    setAnimation(selector, animation) { // Inicializa la animación
+    setAnimation(selector, animation) { // Initializes the animation
         $(document).on('click', selector, () => this[animation]() );
     }
 
-    toggleItem() { // Animación slide toggle
+    toggleItem() { // Slide toggle animation 
         this.element.slideToggle();
     }
 

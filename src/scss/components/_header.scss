@@ -17,11 +17,13 @@
 .header-actions {
     line-height: $font-size-h2;
     float: right;
-    z-index: 1;
     .sign-in{
         font-size: $font-size-h6;
         color: $titles-color;
         text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
     }
     .search{
         padding: 5px;
@@ -30,9 +32,10 @@
     }
 }
 
-.search-box {
+.search-box, .sign-box {
+    display: none;
 
-    #search {
+    #search, #username, #password {
         border: none;
         border-bottom: 1px solid $titles-color;
         background: none;
@@ -48,20 +51,41 @@
             outline: none;
         }
     }
+
+    .forgot-password, .register {
+        font-size: $font-size-h6;
+        color: $titles-color;
+        text-decoration: none;
+        display: inline-block;
+        line-height: $font-size-h4;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 .search-group {
     position: relative;
-    display: none;
 }
 
-.search-submit {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+.sign-group {
+    @extend .search-group;
+    text-align: center;
+}
+
+.sign-submit {
     border: none;
     background: none;
     color: $titles-color;
     font-size: $font-size-h4;
+    margin: 10px 0;
+}
+
+.search-submit {
+    @extend .sign-submit;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     margin-bottom: 5px;
 }
+
