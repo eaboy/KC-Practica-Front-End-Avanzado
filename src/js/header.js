@@ -7,8 +7,8 @@ export default class Header {
     }
 
     init() {
-        this.searchAnimations.setAnimation('.search','toggleItem');
-        this.signRegister.setAnimation('.sign-in','toggleItem');
+        this.searchAnimations.setAnimation('.search','.sign-box');
+        this.signRegister.setAnimation('.sign-in','.search-box');
     }
 
 }
