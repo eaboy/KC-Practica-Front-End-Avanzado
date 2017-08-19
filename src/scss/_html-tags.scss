@@ -1,9 +1,14 @@
+html, body {
+  overflow-x: hidden;
+}
+
 body {
     background: $bg-primary-color;
     font-family: $main-font-family;
     font-size: $font-size-base;
     color: $main-text-color;
     padding-top: 55px;
+    margin: 0;
 }
 
 .clearfix:after {

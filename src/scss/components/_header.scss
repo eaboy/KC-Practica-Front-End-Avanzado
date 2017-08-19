@@ -1,3 +1,4 @@
+
 .web-header {
     box-sizing: border-box;
     padding: 10px;
@@ -108,3 +109,19 @@
     margin-bottom: 5px;
 }
 
+.nav-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 10px;
+    margin-left: -100px;
+    transition: all 0.7s ease-in-out;
+    &.show-menu {
+        margin-left: 10px;
+    }
+}
+
+.menu-button {
+    @extend .sign-submit;
+    margin: 0;
+}

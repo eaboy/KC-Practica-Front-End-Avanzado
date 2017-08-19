@@ -1,0 +1,8 @@
+.container {
+
+    transition: all 0.7s ease-in-out;
+    &.show-menu{
+        margin-left: 100px;
+        margin-right: -100px;
+    }
+}

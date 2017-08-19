@@ -7,7 +7,11 @@ export default class Animations {
     }
 
     setAnimation(selector, selectorHide) { // Initializes the animation
-        $(document).on('click', selector, () => this.slideUpItem(selectorHide) );
+        if(selectorHide){
+            $(document).on('click', selector, () => this.slideUpItem(selectorHide) );
+        } else {
+            $(document).on('click', selector, () => this.toggleClass() );
+        }
     }
 
     toggleItem() { // Slide toggle animation 
@@ -16,6 +20,10 @@ export default class Animations {
 
     slideUpItem(selector) { // Hide element 
         $(selector).slideUp(this.toggleItem());
+    }
+
+    toggleClass() {
+        this.element.toggleClass('show-menu');
     }
 
 }
