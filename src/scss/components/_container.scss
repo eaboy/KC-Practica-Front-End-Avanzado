@@ -1,8 +1,19 @@
 .container {
 
-    transition: all 0.7s ease-in-out;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     &.show-menu{
-        margin-left: 100px;
-        margin-right: -100px;
+        transform: translate3d($nav-menu-width,0,0);
+        .menu-toggle{
+            .menu-button{
+                .fa-bars{
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+    @include if-tablet-portrait {
+        &.show-menu{
+            transform: translate3d($nav-menu-width + 100px,0,0);
+        }
     }
 }

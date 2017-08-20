@@ -2,7 +2,7 @@
 .web-header {
     box-sizing: border-box;
     padding: 10px;
-    position: absolute;
+    position: fixed;
     top: 0;
     background-color: $bg-secondary-color;
     width: 100%;
@@ -110,18 +110,73 @@
 }
 
 .nav-bar {
-    position: absolute;
-    left: 0;
+    position: fixed;
+    left: -$nav-menu-width;
     top: 0;
-    margin: 10px;
-    margin-left: -100px;
-    transition: all 0.7s ease-in-out;
+    background: $bg-secondary-color;
+    width: $nav-menu-width;
+    height: 100%;
+    margin-left: -15px;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     &.show-menu {
-        margin-left: 10px;
+        transform: translate3d($nav-menu-width,0,0);
+    }
+    h4 {
+        font-size: $font-size-h4;
+        color: $titles-color;
+        font-weight: bold;
+        margin: 18px 8px 8px 23px;
+    }
+    @include if-tablet-portrait {
+        left: -$nav-menu-width - 100px;
+        width: $nav-menu-width + 100px;
+        margin-left: -22px;
+        h4 {
+            font-size: $font-size-h3;
+            margin: 20px 8px 18px 35px;
+        }
+        &.show-menu {
+            transform: translate3d($nav-menu-width + 100px,0,0);
+        }
+    }
+}
+
+.menu {
+    margin: 10px 10px 10px 28px;
+    li {
+        margin-bottom: 8px;
+        a {
+            text-decoration: none;
+            color: $titles-color;
+            font-size: $font-size-h5;
+            &:active {
+                text-decoration: underline;
+            }
+        }
+    }
+    @include if-tablet-portrait {
+        margin-left: 43px;
+        li {
+            margin-bottom: 13px;
+            a {
+                font-size: $font-size-h4;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
 
 .menu-button {
     @extend .sign-submit;
     margin: 0;
+    float: left;
+    &:focus {
+        outline: none;
+    }
+}
+
+.fa-bars{
+    transition: all .7s cubic-bezier(0.4, 0, 0.2, 1);
 }
