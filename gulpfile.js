@@ -16,7 +16,7 @@ var imagemin = require('gulp-imagemin');
 var responsive = require('gulp-responsive');
 
 //definimos la tarea por defecto
-gulp.task('default', ['copy', 'html','sass', 'js'], function(){
+gulp.task('default', ['img', 'copy', 'html','sass', 'js'], function(){
     // iniciamos el servidor de desarrollo
     browserSync.init({proxy: 'http://127.0.0.1:3100/'});
 
@@ -81,9 +81,9 @@ gulp.task('img', function(){
     gulp.src('src/img/*')
         .pipe(responsive({ // Crea las imágenes en los distintos tamaños.
             '*' : [
-                { width: 150, rename: { suffix: '150px' }},
-                { width: 250, rename: { suffix: '250px' }},
-                { width: 300, rename: { suffix: '300px' }}
+                { width: 500, rename: { suffix: '-s' }},
+                { width: 800, rename: { suffix: '-m' }},
+                { width: 1100, rename: { suffix: '-l' }}
             ]
         }))
         .pipe(imagemin()) // Optimiza las imágenes
