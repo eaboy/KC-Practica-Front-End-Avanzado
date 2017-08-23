@@ -80,10 +80,13 @@ gulp.task('js', function(){
 gulp.task('img', function(){
     gulp.src('src/img/*')
         .pipe(responsive({ // Crea las imágenes en los distintos tamaños.
-            '*' : [
+            '*.jpg' : [
                 { width: 500, rename: { suffix: '-s' }},
                 { width: 800, rename: { suffix: '-m' }},
                 { width: 1100, rename: { suffix: '-l' }}
+            ],
+            '*.png' : [
+                { width: 100}
             ]
         }))
         .pipe(imagemin()) // Optimiza las imágenes
