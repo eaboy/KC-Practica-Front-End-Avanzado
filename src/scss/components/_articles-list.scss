@@ -32,7 +32,7 @@
         }
     
         .article { 
-            margin: 10px;
+            margin: 10px 10px 20px 10px;
             max-height: 340px;
             overflow: hidden;
             .article-image {
@@ -41,7 +41,7 @@
                 object-fit: cover;
             }
             .title {
-                padding: 10px;
+                padding: 10px 10px 0 10px;
                 font-family: $titles-font-family;
                 font-size: $font-size-h4;
                 font-weight: bold;
@@ -102,6 +102,11 @@
                         }
                     }
                 }
+            }
+
+            @include if-tablet-portrait {
+                float: left;
+                width: calc(50% - 20px);
             }
         }
     

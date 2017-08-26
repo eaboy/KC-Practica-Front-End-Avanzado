@@ -12,6 +12,10 @@
         }
     }
     @include if-tablet-portrait {
+        &.content {
+            max-width: 1200px;
+            margin: auto;
+        }
         &.show-menu{
             transform: translate3d($nav-menu-width + 100px,0,0);
         }
