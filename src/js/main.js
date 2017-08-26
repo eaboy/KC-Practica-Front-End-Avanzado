@@ -5,6 +5,7 @@ import Animations from './animations.js';
 import Header from './header.js';
 
 const header = new Header(Animations);
-header.init();
+const animation = new Animations();
 
-$(".article-intro").dotdotdot({watch:'window'});
+animation.init();
+header.init();

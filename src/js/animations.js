@@ -6,6 +6,10 @@ export default class Animations {
         this.element = $(selector);
     }
 
+    init() {
+        $(".article-intro").dotdotdot({watch:'window'});
+    }
+
     setAnimation(selector, selectorHide) { // Initializes the animation
         if(selectorHide){
             $(document).on('click', selector, () => this.slideUpItem(selectorHide) );
