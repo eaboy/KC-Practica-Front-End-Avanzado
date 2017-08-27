@@ -1,19 +1,24 @@
 {
-  "posts": [
+  "articles": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "title": "Titulo1",
+      "image_name": "article-sample1",
+      "author": "Jhon Doe",
+      "photo_name": "",
+      "intro_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla erat, vehicula eu auctor eget, tristique id metus. Aenean placerat porttitor placerat. Fusce venenatis augue turpis. Proin eu mi magna. Suspendisse pulvinar eros elit, et feugiat est dictum nec.",
+      "publish_date": "",
+      "comments": 13
+    },
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "Titulo2",
+      "image_name": "article-sample2",
+      "author": "George Lucas George Lucas George Lucas George Lucas",
+      "photo_name": "george_lucas",
+      "intro_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla erat, vehicula eu auctor eget, tristique id metus. Aenean placerat porttitor placerat. Fusce venenatis augue turpis. Proin eu mi magna. Suspendisse pulvinar eros elit, et feugiat est dictum nec.",
+      "publish_date": "",
+      "comments": 7
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
