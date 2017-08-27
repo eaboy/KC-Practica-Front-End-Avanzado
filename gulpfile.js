@@ -16,7 +16,7 @@ var imagemin = require('gulp-imagemin');
 var responsive = require('gulp-responsive');
 
 //definimos la tarea por defecto
-gulp.task('default', ['img', 'copy', 'html','sass', 'js'], function(){
+gulp.task('default', ['img', 'copy', 'videos', 'html','sass', 'js'], function(){
     // iniciamos el servidor de desarrollo
     browserSync.init({proxy: 'http://127.0.0.1:3100/'});
 
@@ -96,4 +96,9 @@ gulp.task('img', function(){
 gulp.task('copy', function(){
     gulp.src('src/fonts/*')
         .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('videos', function(){
+    gulp.src('src/videos/*')
+        .pipe(gulp.dest('dist/videos'));
 });

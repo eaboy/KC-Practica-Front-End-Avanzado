@@ -38,11 +38,19 @@ export default class ArticlesListManager{
         if (photo === '') {
             photo = 'placeholder-male';
         }
-        return `<article class="article">
-                    <picture>
-                        <source srcset="./img/${article.image_name}-s.jpg 500w, ./img/${article.image_name}-m.jpg 800w, ./img/${article.image_name}-l.jpg 1100w" media="(min-width: 768px)">
-                        <img src="./img/${article.image_name}-s.jpg" alt="" class="article-image">
-                    </picture>
+        let articleMedia;
+        if (article.video_name === ''){
+            articleMedia = `<picture>
+                                <source srcset="./img/${article.image_name}-s.jpg 500w, ./img/${article.image_name}-m.jpg 800w, ./img/${article.image_name}-l.jpg 1100w" media="(min-width: 768px)">
+                                <img src="./img/${article.image_name}-s.jpg" alt="" class="article-image">
+                            </picture>`;
+        } else {
+            articleMedia = `<video class="video" controls>
+                                <source src="./videos/${article.video_name}.mp4" type="video/mp4">
+                            </video>`
+        }
+        return `<article class="article">      
+                    ${articleMedia}
                     <h2 class="title">${article.title}</h2>
                     <p class="article-intro">${article.intro_text}</p>
                     <div class="article-info">
