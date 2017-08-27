@@ -24,9 +24,10 @@ export default class Animations {
 
     slideUpItem(selector) { // Hide element 
         $(selector).slideUp(this.toggleItem());
+        return false; // Prevents the navigation to top behavior (because it's an a element with # in the href)
     }
 
-    toggleClass() {
+    toggleClass() { // Toggle class to show/hide menu
         this.element.toggleClass('show-menu');
     }
 
