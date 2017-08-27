@@ -79,6 +79,13 @@
                             font-weight: bold;
                             margin-bottom: 5px;
                             cursor: pointer;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            max-width: calc(100vw - 180px);
+                            @include if-tablet-portrait {
+                                max-width: calc(50vw - 180px);
+                            }
                         }
                     }
                 }
@@ -109,9 +116,9 @@
                             border-radius: 100%;
                             text-align: center;
                             color: $bg-primary-color;
-                            height: $font-size-h6 + 1px;
-                            width: $font-size-h6 + 1px;
-                            line-height: $font-size-h6 +4px;
+                            height: $font-size-h6 + 2px;
+                            width: $font-size-h6 + 2px;
+                            line-height: $font-size-h6 +6px;
                         }
                     }
                 }
