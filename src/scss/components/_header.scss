@@ -118,7 +118,7 @@
     width: $nav-menu-width;
     height: 100%;
     margin-left: -15px;
-    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     &.show-menu {
         transform: translate3d($nav-menu-width,0,0);
     }
