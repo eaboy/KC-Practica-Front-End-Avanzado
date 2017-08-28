@@ -92,6 +92,9 @@
                                 max-width: calc(50vw - 180px);
                             }
                         }
+                        .publish-time {
+                            font-size: $font-size-h6 - 2px;
+                        }
                     }
                 }
                 .extras {
