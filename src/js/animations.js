@@ -6,8 +6,8 @@ export default class Animations {
         this.element = $(selector);
     }
 
-    init() {
-        $(".article-intro").dotdotdot({watch:'window'});
+    dotdot() {
+        $(".article-intro").dotdotdot({watch:true}); // Adds the ellipsis
     }
 
     setAnimation(selector, selectorHide) { // Initializes the animation

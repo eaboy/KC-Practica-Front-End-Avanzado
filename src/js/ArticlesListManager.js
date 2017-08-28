@@ -1,8 +1,9 @@
 export default class ArticlesListManager{
 
-    constructor(articlesService, uiManager){
+    constructor(articlesService, uiManager, animation){
         this.articlesService = articlesService;
         this.uiManager = uiManager;
+        this.animation = animation;
     }
 
     init(){
@@ -31,6 +32,7 @@ export default class ArticlesListManager{
         }
 
         this.uiManager.setIdealHtml(html);
+        this.animation.dotdot(); // Call function to add ellipsis to intro text
     }
 
     renderArticle(article){
