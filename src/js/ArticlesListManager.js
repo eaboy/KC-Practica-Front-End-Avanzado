@@ -1,5 +1,8 @@
-export default class ArticlesListManager{
 
+var moment = require('moment');
+
+export default class ArticlesListManager{
+    
     constructor(articlesService, uiManager, animation){
         this.articlesService = articlesService;
         this.uiManager = uiManager;
@@ -37,11 +40,13 @@ export default class ArticlesListManager{
 
     renderArticle(article){
         let photo = article.photo_name;
-        if (photo === '') {
+        let articleMedia;
+
+        if (photo === '') { // Checks if there is no author photo, if not uses the default placeholder photo
             photo = 'placeholder-male';
         }
-        let articleMedia;
-        if (article.video_name === ''){
+        
+        if (article.video_name === ''){ // Checks if there is no video for the article, if not uses the html for images and the image, else uses the html for videos and the video
             articleMedia = `<picture>
                                 <source srcset="./img/${article.image_name}-s.jpg 500w, ./img/${article.image_name}-m.jpg 800w, ./img/${article.image_name}-l.jpg 1100w" media="(min-width: 768px)">
                                 <img src="./img/${article.image_name}-s.jpg" alt="" class="article-image">
@@ -51,6 +56,7 @@ export default class ArticlesListManager{
                                 <source src="./videos/${article.video_name}.mp4" type="video/mp4">
                             </video>`
         }
+
         return `<article class="article">      
                     ${articleMedia}
                     <h2 class="title">${article.title}</h2>
@@ -60,7 +66,7 @@ export default class ArticlesListManager{
                             <img src="./img/${photo}.png" alt="" class="author-photo">
                             <div class="publish-info">
                                 <h5 class="author-name">${article.author}</h5>
-                                <div class="publish-time">7 min ago</div>
+                                <div class="publish-time">${this.publishedFromNow(article.publish_date)}</div>
                             </div>
                         </div>
                         <div class="extras">
@@ -69,6 +75,18 @@ export default class ArticlesListManager{
                         </div>
                     </div>
                 </article>`
+    }
+
+    publishedFromNow(date) {
+
+        let daysFromPublish = moment().diff(moment(date,'YYYY/MM/DD hh:mm:ss'), 'days');
+        if (daysFromPublish > 6 ) {
+            return moment(date).format('YYYY/MM/DD');
+        } else if (daysFromPublish < 1) {
+            return moment(date).fromNow();
+        } else {
+            return `Last ${moment(date).format('dddd')}`;
+        }
     }
 
 }

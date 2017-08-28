@@ -1,6 +1,5 @@
 window.$ = window.jQuery = require('jquery');
 var dotdotdot = require('dotdotdot');
-var moment = require('moment');
 
 import Animations from './animations';
 import Header from './header';
