@@ -12,7 +12,7 @@ const animation = new Animations();
 const articlesService = new APIService('/articles');
 const articlesUIManager = new UIManager('.articles-list');
 
-const articlesListManager = new ArticlesListManager(articlesService, articlesUIManager, animation);
+const articlesListManager = new ArticlesListManager(articlesService, articlesUIManager, '.article');
 articlesListManager.init();
 
 header.init();

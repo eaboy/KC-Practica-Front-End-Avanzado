@@ -1,13 +1,8 @@
-const $ = require('jquery');
 
 export default class Animations {
 
     constructor(selector) { 
         this.element = $(selector);
-    }
-
-    dotdot() {
-        $(".article-intro").dotdotdot({watch:true}); // Adds the ellipsis
     }
 
     setAnimation(selector, selectorHide) { // Initializes the animation
