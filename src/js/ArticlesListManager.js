@@ -70,9 +70,8 @@ export default class ArticlesListManager extends ArticleManager{
     }
 
     setLikeEventHandler() {
-        console.log(this.element);
-        this.element.on('click', '.like-icon', function(){
-            console.log('e');
+        this.element.on('click', '.like-icon', function() {
+            console.log($(this).parents('.article')[0].dataset.id);
         });
     }
 
