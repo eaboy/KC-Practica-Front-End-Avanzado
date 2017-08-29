@@ -1,8 +1,8 @@
 window.$ = window.jQuery = require('jquery');
 var dotdotdot = require('dotdotdot');
 
-import Animations from './animations';
-import Header from './header';
+import Animations from './Animations';
+import Header from './Header';
 import APIService from './APIService';
 import UIManager from './UIManager';
 import ArticlesListManager from './ArticlesListManager';
