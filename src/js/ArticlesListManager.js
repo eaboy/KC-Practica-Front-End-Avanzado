@@ -3,9 +3,10 @@ import ArticleManager from './ArticleManager';
 
 export default class ArticlesListManager extends ArticleManager{
     
-    constructor(articlesService, articlesUIManager, selector){
+    constructor(articlesService, articlesUIManager, selector, likesStorage){
         super(articlesService, articlesUIManager);
         this.element = $(selector);
+        this.likesStorage = likesStorage;
     }
 
     init(){
@@ -71,8 +72,12 @@ export default class ArticlesListManager extends ArticleManager{
 
     setLikeEventHandler() {
         this.element.on('click', '.like-icon', function() {
-            console.log($(this).parents('.article')[0].dataset.id);
+            likeClicled($(this).parents('.article')[0].dataset.id);
         });
+    }
+
+    likeClicked(articleId) {
+
     }
 
 }
