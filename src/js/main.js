@@ -12,7 +12,7 @@ const header = new Header(Animations);
 const animation = new Animations();
 const articlesService = new APIService('/articles');
 const articlesUIManager = new UIManager('.articles-list');
-const likesLStorage = new LStorage('articlesLiked');
+const likesLStorage = new LStorage('likedArticles');
 
 const articlesListManager = new ArticlesListManager(articlesService, articlesUIManager, '.articles-list', likesLStorage);
 articlesListManager.init();

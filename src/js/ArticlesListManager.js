@@ -40,6 +40,12 @@ export default class ArticlesListManager extends ArticleManager{
     }
 
     renderArticle(article){
+        let heartIconClass = '';
+        if(this.isLiked(article.id)[0]){
+            heartIconClass = 'fa-heart';
+        } else {
+            heartIconClass = 'fa-heart-o';
+        }
 
         return `<article class="article" data-id="${article.id}">      
                     ${this.getArticleMedia(article)}
@@ -55,7 +61,7 @@ export default class ArticlesListManager extends ArticleManager{
                         </div>
                         <div class="extras">
                             <div class="article-comments"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="number-comments">${article.comments}</span></div>
-                            <div class="like-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+                            <div class="like-icon"><i class="fa ${heartIconClass}" aria-hidden="true"></i></div>
                         </div>
                     </div>
                 </article>`
@@ -71,13 +77,39 @@ export default class ArticlesListManager extends ArticleManager{
     }
 
     setLikeEventHandler() {
+        var self = this;
         this.element.on('click', '.like-icon', function() {
-            likeClicled($(this).parents('.article')[0].dataset.id);
+            self.likeClicked($(this).parents('.article')[0].dataset.id);
+            self.likeIconChange($(this));
         });
     }
 
     likeClicked(articleId) {
+        this.likesStorage.saveData(this.isLiked(articleId)[1]);
+    }
 
+    isLiked(articleId){
+        let likedArticles = this.likesStorage.readData();
+        let isLiked;
+
+        if(likedArticles === null || likedArticles === '') {
+            likedArticles = articleId;
+            isLiked = false;            
+        } else {
+            likedArticles = likedArticles.split(',');
+            if(likedArticles.indexOf(articleId) === -1) {
+                likedArticles.push(articleId);
+                isLiked = false;
+            } else {
+                likedArticles.splice(likedArticles.indexOf(articleId), 1);
+                isLiked = true;
+            }
+        }
+        return [isLiked,likedArticles];
+    }
+
+    likeIconChange(clickedElement) {
+        clickedElement.children().toggleClass('fa-heart fa-heart-o');
     }
 
 }
