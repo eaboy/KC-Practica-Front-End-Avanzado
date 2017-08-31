@@ -13,6 +13,8 @@ export default class ArticlesListManager extends ArticleManager{
         this.loadArticles();
         $(".article-intro").dotdotdot({watch:true}); // Adds the ellipsis
         this.setLikeEventHandler();
+        this.videoControlsDisplay();
+
     }
 
     loadArticles(){
@@ -110,6 +112,17 @@ export default class ArticlesListManager extends ArticleManager{
 
     likeIconChange(clickedElement) {
         clickedElement.children().toggleClass('fa-heart fa-heart-o');
+    }
+    
+    videoControlsDisplay() {
+        
+        let video = $('.video');
+        $(document).on('mouseenter','.video', function () {
+                this.setAttribute("controls","controls")
+            }).on('mouseleave','.video', function () {
+                this.removeAttribute("controls");
+            }
+        );
     }
 
 }

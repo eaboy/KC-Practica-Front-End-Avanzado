@@ -26,4 +26,9 @@ export default class Animations {
         this.element.toggleClass('show-menu');
     }
 
+    scrollToTop() {
+        $('html, body').animate({ scrollTop: 0}, 'slow');
+        return false;
+    }
+
 }

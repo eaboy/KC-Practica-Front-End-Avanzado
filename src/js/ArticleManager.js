@@ -32,7 +32,7 @@ export default class ArticleManager{
     }
 
     getVideoHtml(videoName) { // Returns the html for videos and the video
-        return `<video class="video" controls>
+        return `<video class="video">
                     <source src="./videos/${videoName}.mp4" type="video/mp4">
                 </video>`;
     }
