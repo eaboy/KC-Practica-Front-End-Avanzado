@@ -41,7 +41,7 @@ export default class ArticlesListManager extends ArticleManager{
 
     renderArticle(article){
         let heartIconClass = '';
-        if(this.isLiked(article.id)[0]){
+        if(this.isLiked(`${article.id}`)[0]){
             heartIconClass = 'fa-heart';
         } else {
             heartIconClass = 'fa-heart-o';
@@ -90,22 +90,22 @@ export default class ArticlesListManager extends ArticleManager{
 
     isLiked(articleId){
         let likedArticles = this.likesStorage.readData();
-        let isLiked;
+        let isInLikedStorage;
 
         if(likedArticles === null || likedArticles === '') {
             likedArticles = articleId;
-            isLiked = false;            
+            isInLikedStorage = false;            
         } else {
             likedArticles = likedArticles.split(',');
             if(likedArticles.indexOf(articleId) === -1) {
                 likedArticles.push(articleId);
-                isLiked = false;
+                isInLikedStorage = false;
             } else {
                 likedArticles.splice(likedArticles.indexOf(articleId), 1);
-                isLiked = true;
+                isInLikedStorage = true;
             }
         }
-        return [isLiked,likedArticles];
+        return [isInLikedStorage,likedArticles];
     }
 
     likeIconChange(clickedElement) {
