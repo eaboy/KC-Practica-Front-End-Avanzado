@@ -1,0 +1,26 @@
+.footer {
+    height: 40px;
+    width: 100%;
+    background-color: $bg-secondary-color;
+    text-align: center;
+    color: $titles-color;
+    position: relative;
+
+
+    .footer-title {
+        font-size: $font-size-h3;
+        font-family: $titles-font-family;
+        position: relative;
+        .footer-text {
+            position: absolute;
+            font-size: $font-size-h6;
+        }
+    }
+
+    .up-button {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        font-size: $font-size-h3;
+    }
+}

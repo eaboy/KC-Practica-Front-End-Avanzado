@@ -1,23 +1,30 @@
-.container {
+.main-container{
+    min-height: 100%;
+    margin-bottom: -40px;
+    .push{
+        height: 40px;
+    }
+    .container {
 
-    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    &.show-menu{
-        transform: translate3d($nav-menu-width,0,0);
-        .menu-toggle{
-            .menu-button{
-                .fa-bars{
-                    transform: rotate(90deg);
+        transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        &.show-menu{
+            transform: translate3d($nav-menu-width,0,0);
+            .menu-toggle{
+                .menu-button{
+                    .fa-bars{
+                        transform: rotate(90deg);
+                    }
                 }
             }
         }
-    }
-    @include if-tablet-portrait {
-        &.content {
-            max-width: 1200px;
-            margin: auto;
-        }
-        &.show-menu{
-            transform: translate3d($nav-menu-width + 100px,0,0);
+        @include if-tablet-portrait {
+            &.content {
+                max-width: 1200px;
+                margin: auto;
+            }
+            &.show-menu{
+                transform: translate3d($nav-menu-width + 100px,0,0);
+            }
         }
     }
 }
