@@ -2,12 +2,6 @@
 import ArticleManager from './ArticleManager';
 
 export default class ArticlesListManager extends ArticleManager{
-    
-    constructor(articlesService, articlesUIManager, selector, likesStorage){
-        super(articlesService, articlesUIManager);
-        this.element = $(selector);
-        this.likesStorage = likesStorage;
-    }
 
     init(){
         this.loadArticles();
@@ -15,6 +9,7 @@ export default class ArticlesListManager extends ArticleManager{
         this.setLikeEventHandler();
         this.videoControlsDisplay();
         this.paginationIconsHoverEffect();
+        this.articleLinkEventHandler();
     }
 
     loadArticles(){
@@ -106,6 +101,13 @@ export default class ArticlesListManager extends ArticleManager{
     paginationHover(selector,side) {
         $(selector).find('.fa-square, .fa-square-o').toggleClass('fa-square fa-square-o');
         $(selector).find(`.fa-chevron-${side}`).toggleClass('fa-inverse');
+    }
+
+    articleLinkEventHandler() {
+        console.log('ss');
+        $('.article').on('click', '.article-intro', function() {
+            console.log('cached');
+        })
     }
 
 }

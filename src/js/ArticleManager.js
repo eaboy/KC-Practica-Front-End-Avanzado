@@ -3,9 +3,11 @@ var moment = require('moment');
 
 export default class ArticleManager{
 
-    constructor(contentService, uiManager){
+    constructor(contentService, uiManager, selector, likesStorage){
         this.contentService = contentService;
         this.uiManager = uiManager;
+        this.element = $(selector);
+        this.likesStorage = likesStorage;
     }
 
 

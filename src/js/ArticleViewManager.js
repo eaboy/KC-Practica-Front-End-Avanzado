@@ -1,12 +1,6 @@
 import ArticleManager from './ArticleManager';
 
 export default class ArticleViewManager extends ArticleManager{
-    
-    constructor(articlesService, articleUIManager, selector, likesStorage){
-        super(articlesService, articleUIManager);
-        this.element = $(selector);
-        this.likesStorage = likesStorage;
-    }
 
     init(){
         this.loadArticle();
