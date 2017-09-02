@@ -14,7 +14,7 @@ export default class ArticlesListManager extends ArticleManager{
         $(".article-intro").dotdotdot({watch:true}); // Adds the ellipsis
         this.setLikeEventHandler();
         this.videoControlsDisplay();
-
+        this.paginationIconsHoverEffect();
     }
 
     loadArticles(){
@@ -115,14 +115,33 @@ export default class ArticlesListManager extends ArticleManager{
     }
     
     videoControlsDisplay() {
-        
-        let video = $('.video');
         $(document).on('mouseenter','.video', function () {
                 this.setAttribute("controls","controls")
             }).on('mouseleave','.video', function () {
                 this.removeAttribute("controls");
             }
         );
+    }
+
+    paginationIconsHoverEffect() {
+        var self = this;
+
+        $('.prev:not(.disabled)').on('mouseenter', function(){
+            self.paginationHover(this,'left');
+        }).on('mouseleave', function(){
+            self.paginationHover(this,'left');
+        });
+
+        $('.next:not(.disabled)').on('mouseenter', function(){
+            self.paginationHover(this,'right');
+        }).on('mouseleave', function(){
+            self.paginationHover(this,'right');
+        });
+    }
+
+    paginationHover(selector,side) {
+        $(selector).find('.fa-square, .fa-square-o').toggleClass('fa-square fa-square-o');
+        $(selector).find(`.fa-chevron-${side}`).toggleClass('fa-inverse');
     }
 
 }
