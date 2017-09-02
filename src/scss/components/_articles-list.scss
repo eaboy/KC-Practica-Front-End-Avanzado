@@ -20,7 +20,7 @@
             }
         }
         &.ideal {
-            .ui-status.ideal {
+            .ui-status.ideal,.pagination {
                 display: block;
             }
         }
@@ -137,5 +137,23 @@
                 width: calc(50% - 20px);
             }
         }
-    
+    .pagination {
+        display: none;
+        text-align: center;
+        color: $titles-color;
+        .prev,.next{
+            display: inline;
+            cursor: pointer;
+            &.disabled {
+                cursor: auto;
+                color: transparentize($titles-color, 0.5);
+            }
+        }
+        .next{
+            margin-left: 10%;
+        }
+        .prev{
+            margin-right: 10%;
+        }
+    }
 }
