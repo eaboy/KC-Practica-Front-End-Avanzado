@@ -129,20 +129,30 @@
       "last_name": "Simpson",
       "email": "homer.j.simpson@mrxswebpage.com",
       "comment": "Hey, Apu, you got that new beer with candy floating in it... Skittlebrau?"
-    },{
+    },
+    {
       "id": 2,
       "article_id": 4,
       "name": "Apu",
       "last_name": "Nahasapeemapetilon",
       "email": "apu@kwik-e-mart.com",
       "comment": "No such product exists sir. You must have dreamt it."
-    },{
+    },
+    {
       "id": 3,
       "article_id": 4,
       "name": "Homer",
       "last_name": "Simpson",
       "email": "homer.j.simpson@mrxswebpage.com",
       "comment": "Well then, just gimme a six pack and a bag of Skittles."
+    },
+    {
+      "id": 4,
+      "article_id": 2,
+      "name": "Darth",
+      "last_name": "Vader",
+      "email": "anakin@darkside.com",
+      "comment": "Are you my father? George"
     }
   ]
 }

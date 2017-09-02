@@ -6,7 +6,15 @@
         font-size: $font-size-h4;
     }
     
-    .ui-status{display: none;}
+    .ui-status{
+        display: none;
+
+        &.empty, &.error, &.loading {
+            font-size: $font-size-large;
+            text-align: center;
+            padding: 50px;
+        }
+    }
     &.empty {
         .ui-status.empty {
             display: block;
@@ -29,12 +37,6 @@
         .ui-status.ideal,.pagination {
             display: block;
         }
-    }
-
-    &.empty, &.error, &.loading {
-        font-size: $font-size-large;
-        text-align: center;
-        padding: 50px;
     }
 
     .comment-content {
