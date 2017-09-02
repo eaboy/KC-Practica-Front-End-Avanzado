@@ -1,0 +1,28 @@
+.article-view{
+    
+    .ui-status{display: none;}
+    &.loading {
+        .ui-status.loading {
+            display: block;
+            .fa-circle-o-notch {
+                margin-top: 15px;
+            }
+        }
+    }
+    &.error {
+        .ui-status.error {
+            display: block;
+        }
+    }
+    &.ideal {
+        .ui-status.ideal,.pagination {
+            display: block;
+        }
+    }
+
+    &.error, &.loading {
+        font-size: $font-size-large;
+        text-align: center;
+        padding: 50px;
+    }
+}

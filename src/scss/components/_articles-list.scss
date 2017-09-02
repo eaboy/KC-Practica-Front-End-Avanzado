@@ -1,142 +1,143 @@
 .articles-list{
     
-        .ui-status{display: none;}
-        &.empty {
-            .ui-status.empty {
-                display: block;
+    .ui-status{display: none;}
+    &.empty {
+        .ui-status.empty {
+            display: block;
+        }
+    }
+    &.loading {
+        .ui-status.loading {
+            display: block;
+            .fa-circle-o-notch {
+                margin-top: 15px;
             }
         }
-        &.loading {
-            .ui-status.loading {
-                display: block;
-                .fa-circle-o-notch {
-                    margin-top: 15px;
-                }
-            }
+    }
+    &.error {
+        .ui-status.error {
+            display: block;
         }
-        &.error {
-            .ui-status.error {
-                display: block;
-            }
+    }
+    &.ideal {
+        .ui-status.ideal,.pagination {
+            display: block;
         }
-        &.ideal {
-            .ui-status.ideal,.pagination {
-                display: block;
-            }
+    }
+
+    &.empty, &.error, &.loading {
+        font-size: $font-size-large;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .article { 
+        margin: 10px 10px 20px 10px;
+        max-height: 370px;
+        overflow: hidden;
+        .video,.article-image {
+            height: 200px;
+            width: 100%;
+            cursor: pointer;
         }
-    
-        &.empty, &.error, &.loading {
-            font-size: $font-size-large;
-            text-align: center;
-            padding: 50px;
+        .video {
+            background: black;
         }
-    
-        .article { 
-            margin: 10px 10px 20px 10px;
-            max-height: 370px;
+        .article-image{
+            object-fit: cover;
+        }
+        .title {
+            padding: 10px 10px 0 10px;
+            font-family: $titles-font-family;
+            font-size: $font-size-h4;
+            font-weight: bold;
+            color: $titles-color;
+            cursor: pointer;
+        }
+        .article-intro {
+            padding: 10px;
             overflow: hidden;
-            .video,.article-image {
-                height: 200px;
-                width: 100%;
-                cursor: pointer;
-            }
-            .video {
-                background: black;
-            }
-            .article-image{
-                object-fit: cover;
-            }
-            .title {
-                padding: 10px 10px 0 10px;
-                font-family: $titles-font-family;
-                font-size: $font-size-h4;
-                font-weight: bold;
-                color: $titles-color;
-                cursor: pointer;
-            }
-            .article-intro {
-                padding: 10px;
-                overflow: hidden;
-                height: 50px;
-                cursor: pointer;
-            }
-            .article-info {
+            height: 50px;
+            cursor: pointer;
+        }
+        .article-info {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 10px;
+            align-items: center;
+            .article-publish-container{
                 display: flex;
                 flex-wrap: nowrap;
-                justify-content: space-between;
-                padding: 10px;
+                justify-content: flex-start;
                 align-items: center;
-                .article-publish-container{
-                    display: flex;
-                    flex-wrap: nowrap;
-                    justify-content: flex-start;
-                    align-items: center;
-                    .author-photo {
-                        border-radius: 100%;
-                        width: 50px;
-                        height: 50px;
-                        margin-right: 10px;
-                        cursor: pointer;
-                    }
-                    .publish-info {
-                        .author-name {
-                            color: $titles-color;
-                            font-weight: bold;
-                            margin-bottom: 5px;
-                            cursor: pointer;
-                            overflow: hidden;
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
-                            max-width: calc(100vw - 180px);
-                            @include if-tablet-portrait {
-                                max-width: calc(50vw - 180px);
-                            }
-                        }
-                        .publish-time {
-                            font-size: $font-size-h6 - 2px;
-                        }
-                    }
+                .author-photo {
+                    border-radius: 100%;
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                    cursor: pointer;
                 }
-                .extras {
-                    font-size: $font-size-h1;
-                    color: $titles-color;
-                    .like-icon{
-                        float: right;
-                        margin-left: 10px;
+                .publish-info {
+                    .author-name {
+                        color: $titles-color;
+                        font-weight: bold;
+                        margin-bottom: 5px;
                         cursor: pointer;
-                        &:hover {
-                            transform: scale(1.1,1.1);
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        max-width: calc(100vw - 180px);
+                        @include if-tablet-portrait {
+                            max-width: calc(50vw - 180px);
                         }
                     }
-                    .article-comments {
-                        float: left;
-                        position: relative;
-                        cursor: pointer;
-                        &:hover {
-                            transform: scale(1.1,1.1);
-                        }
-                        .number-comments{
-                            position: absolute;
-                            right: 0;
-                            bottom: 0;
-                            background: $main-text-color;
-                            font-size: $font-size-h6;
-                            border-radius: 100%;
-                            text-align: center;
-                            color: $bg-primary-color;
-                            height: $font-size-h6 + 2px;
-                            width: $font-size-h6 + 2px;
-                            line-height: $font-size-h6 +6px;
-                        }
+                    .publish-time {
+                        font-size: $font-size-h6 - 2px;
                     }
                 }
             }
-
-            @include if-tablet-portrait {
-                float: left;
-                width: calc(50% - 20px);
+            .extras {
+                font-size: $font-size-h1;
+                color: $titles-color;
+                .like-icon{
+                    float: right;
+                    margin-left: 10px;
+                    cursor: pointer;
+                    &:hover {
+                        transform: scale(1.1,1.1);
+                    }
+                }
+                .article-comments {
+                    float: left;
+                    position: relative;
+                    cursor: pointer;
+                    &:hover {
+                        transform: scale(1.1,1.1);
+                    }
+                    .number-comments{
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        background: $main-text-color;
+                        font-size: $font-size-h6;
+                        border-radius: 100%;
+                        text-align: center;
+                        color: $bg-primary-color;
+                        height: $font-size-h6 + 2px;
+                        width: $font-size-h6 + 2px;
+                        line-height: $font-size-h6 +6px;
+                    }
+                }
             }
         }
+
+        @include if-tablet-portrait {
+            float: left;
+            width: calc(50% - 20px);
+        }
+    }
+
     .pagination {
         display: none;
         text-align: center;
