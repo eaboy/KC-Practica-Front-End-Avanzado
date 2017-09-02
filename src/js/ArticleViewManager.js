@@ -8,7 +8,12 @@ export default class ArticleViewManager extends ArticleManager{
     }
 
     loadArticle(){
-        this.contentService.getItem(3, article => { // Loads articles
+        let articleId = window.location.search.substring(4);
+        if(isNaN(articleId)){
+            this.uiManager.setError();
+            return false;
+        }
+        this.contentService.getItem(articleId, article => { // Loads articles
             let html = this.renderArticle(article);
             this.uiManager.setIdealHtml(html);
             this.uiManager.setIdeal();
