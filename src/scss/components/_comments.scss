@@ -1,0 +1,33 @@
+.comments{
+    
+    .ui-status{display: none;}
+    &.empty {
+        .ui-status.empty {
+            display: block;
+        }
+    }
+    &.loading {
+        .ui-status.loading {
+            display: block;
+            .fa-circle-o-notch {
+                margin-top: 15px;
+            }
+        }
+    }
+    &.error {
+        .ui-status.error {
+            display: block;
+        }
+    }
+    &.ideal {
+        .ui-status.ideal,.pagination {
+            display: block;
+        }
+    }
+
+    &.empty, &.error, &.loading {
+        font-size: $font-size-large;
+        text-align: center;
+        padding: 50px;
+    }
+}
