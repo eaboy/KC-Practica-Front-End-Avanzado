@@ -61,7 +61,7 @@ export default class ArticlesListManager extends ArticleManager{
                             <div class="like-icon"><i class="fa ${heartIconClass}" aria-hidden="true"></i></div>
                         </div>
                     </div>
-                </article>`
+                </article>`;
     }
 
     getArticleMedia(article){

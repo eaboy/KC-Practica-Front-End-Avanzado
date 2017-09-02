@@ -48,6 +48,6 @@ export default class ArticleViewManager extends ArticleManager{
                         </div>
                     </div>
                     <div class="article-text">${article.full_article}</div>
-                </article>`
+                </article>`;
     }
 }
