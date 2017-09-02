@@ -32,10 +32,9 @@ export default class ArticleViewManager extends ArticleManager{
             heartIconClass = 'fa-heart-o';
         }
 
-        return `<article class="article" data-id="${article.id}">      
+        return `<article class="article" data-id="${article.id}">
+                    <h2 class="title">${article.title}</h2>      
                     ${this.getImageHtml(article.image_name)}
-                    <h2 class="title">${article.title}</h2>
-                    <p class="article-text">${article.full_article}</p>
                     <div class="article-info">
                         <div class="article-publish-container">
                             <img src="./img/${this.getArticlePhoto(article.photo_name)}.png" alt="" class="author-photo">
@@ -49,6 +48,7 @@ export default class ArticleViewManager extends ArticleManager{
                             <div class="like-icon"><i class="fa ${heartIconClass}" aria-hidden="true"></i></div>
                         </div>
                     </div>
+                    <div class="article-text">${article.full_article}</div>
                 </article>`
     }
 }
