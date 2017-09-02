@@ -38,10 +38,10 @@
         .video,.article-image {
             height: 200px;
             width: 100%;
-            cursor: pointer;
         }
         .video {
             background: black;
+            cursor: pointer;
         }
         .article-image{
             object-fit: cover;
@@ -53,12 +53,18 @@
             font-weight: bold;
             color: $titles-color;
             cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
         }
         .article-intro {
             padding: 10px;
             overflow: hidden;
             height: 50px;
             cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
         }
         .article-info {
             display: flex;
