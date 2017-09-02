@@ -55,10 +55,10 @@ export default class ArticlesListManager extends ArticleManager{
                     <p class="article-intro">${article.intro_text}</p>
                     <div class="article-info">
                         <div class="article-publish-container">
-                            <img src="./img/${super.getArticlePhoto(article.photo_name)}.png" alt="" class="author-photo">
+                            <img src="./img/${this.getArticlePhoto(article.photo_name)}.png" alt="" class="author-photo">
                             <div class="publish-info">
                                 <h5 class="author-name">${article.author}</h5>
-                                <div class="publish-time">Published ${super.publishedFromNow(article.publish_date)}</div>
+                                <div class="publish-time">Published ${this.publishedFromNow(article.publish_date)}</div>
                             </div>
                         </div>
                         <div class="extras">
@@ -72,46 +72,10 @@ export default class ArticlesListManager extends ArticleManager{
     getArticleMedia(article){
         
         if (article.video_name === '') {
-            return super.getImageHtml(article.image_name);
+            return this.getImageHtml(article.image_name);
         } else {
-            return super.getVideoHtml(article.video_name);
+            return this.getVideoHtml(article.video_name);
         }
-    }
-
-    setLikeEventHandler() {
-        var self = this;
-        this.element.on('click', '.like-icon', function() {
-            self.likeClicked($(this).parents('.article')[0].dataset.id);
-            self.likeIconChange($(this));
-        });
-    }
-
-    likeClicked(articleId) {
-        this.likesStorage.saveData(this.isLiked(articleId)[1]);
-    }
-
-    isLiked(articleId){
-        let likedArticles = this.likesStorage.readData();
-        let isInLikedStorage;
-
-        if(likedArticles === null || likedArticles === '') {
-            likedArticles = articleId;
-            isInLikedStorage = false;            
-        } else {
-            likedArticles = likedArticles.split(',');
-            if(likedArticles.indexOf(articleId) === -1) {
-                likedArticles.push(articleId);
-                isInLikedStorage = false;
-            } else {
-                likedArticles.splice(likedArticles.indexOf(articleId), 1);
-                isInLikedStorage = true;
-            }
-        }
-        return [isInLikedStorage,likedArticles];
-    }
-
-    likeIconChange(clickedElement) {
-        clickedElement.children().toggleClass('fa-heart fa-heart-o');
     }
     
     videoControlsDisplay() {

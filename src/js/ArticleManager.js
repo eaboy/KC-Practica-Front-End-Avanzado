@@ -46,5 +46,41 @@ export default class ArticleManager{
         }
 
     }
+    
+    setLikeEventHandler() {
+        var self = this;
+        this.element.on('click', '.like-icon', function() {
+            self.likeClicked($(this).parents('.article')[0].dataset.id);
+            self.likeIconChange($(this));
+        });
+    }
+
+    likeClicked(articleId) {
+        this.likesStorage.saveData(this.isLiked(articleId)[1]);
+    }
+
+    isLiked(articleId){
+        let likedArticles = this.likesStorage.readData();
+        let isInLikedStorage;
+
+        if(likedArticles === null || likedArticles === '') {
+            likedArticles = articleId;
+            isInLikedStorage = false;            
+        } else {
+            likedArticles = likedArticles.split(',');
+            if(likedArticles.indexOf(articleId) === -1) {
+                likedArticles.push(articleId);
+                isInLikedStorage = false;
+            } else {
+                likedArticles.splice(likedArticles.indexOf(articleId), 1);
+                isInLikedStorage = true;
+            }
+        }
+        return [isInLikedStorage,likedArticles];
+    }
+
+    likeIconChange(clickedElement) {
+        clickedElement.children().toggleClass('fa-heart fa-heart-o');
+    }
         
 }
