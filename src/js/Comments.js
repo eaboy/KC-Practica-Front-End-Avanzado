@@ -16,7 +16,7 @@ export default class Comments {
             return false;
         }
         this.contentService.listFiltered(`?article_id=${articleId}`, comments => { // Loads comments
-            if (articles.length > 0) { // Checks if there are articles
+            if (comments.length > 0) { // Checks if there are articles
                 this.renderComments(comments); 
                 this.uiManager.setIdeal();
             } else {
@@ -32,7 +32,7 @@ export default class Comments {
         let html = '';
 
         for (let comment of comments) {
-            html += this.renderArticle(comment);
+            html += this.renderComment(comment);
         }
 
         this.uiManager.setIdealHtml(html);
