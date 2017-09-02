@@ -14,5 +14,14 @@ export default class APIService {
             error: errorCallback
         });
     }
+    
+    // Get one item from API url
+    getItem(id, successCallback, errorCallback) {
+        $.ajax({
+            url: `${this.url}/${id}`,
+            success: successCallback,
+            error: errorCallback
+        });
+    }
 
 }
