@@ -23,5 +23,14 @@ export default class APIService {
             error: errorCallback
         });
     }
+    
+    // Get all items from API url filtered
+    listFiltered(filter, successCallback, errorCallback) {
+        $.ajax({
+            url: `${this.url}/${filter}`,
+            success: successCallback,
+            error: errorCallback
+        });
+    }
 
 }
