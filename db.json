@@ -175,6 +175,14 @@
       "email": "asdas@asdasd.com",
       "comment": "Update comments number test",
       "id": 8
+    },
+    {
+      "article_id": "7",
+      "name": "Eduardo",
+      "last_name": "Aboy",
+      "email": "hhb@bjjv.com",
+      "comment": "Comment from out of the civilized world, from IE11...",
+      "id": 9
     }
   ]
 }
