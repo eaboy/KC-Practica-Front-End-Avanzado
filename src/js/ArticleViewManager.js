@@ -1,4 +1,5 @@
 import ArticleManager from './ArticleManager';
+require('waypoints/lib/noframework.waypoints');
 
 export default class ArticleViewManager extends ArticleManager{
 
@@ -18,6 +19,7 @@ export default class ArticleViewManager extends ArticleManager{
             this.uiManager.setIdealHtml(html);
             this.uiManager.setIdeal();
             this.setNumberComments();
+            this.watchToShowComments();
         }, error => {
             this.uiManager.setError();
             console.log('Error:', error);
@@ -50,5 +52,16 @@ export default class ArticleViewManager extends ArticleManager{
                     </div>
                     <div class="article-text">${article.full_article}</div>
                 </article>`;
+    }
+
+    watchToShowComments(){
+        var waypoint = new Waypoint({
+            element: $('.comments')[0],
+            handler: function() {
+                Waypoint.destroyAll();
+                console.log('Basic waypoint triggered');
+            },
+            offset: '100%'
+        })
     }
 }

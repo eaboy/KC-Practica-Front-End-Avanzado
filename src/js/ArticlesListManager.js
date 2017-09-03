@@ -107,7 +107,7 @@ export default class ArticlesListManager extends ArticleManager{
     }
 
     articleLinkEventHandler() {
-        $(document).on('click', '.title, .article-intro', function() {
+        $('.articles-list').on('click', '.title, .article-intro', function() {
             window.location.href = `article.html?id=${$(this).parents('.article')[0].dataset.id}`;
         })
     }
