@@ -9,6 +9,7 @@ export default class ArticlesListManager extends ArticleManager{
         this.videoControlsDisplay();
         this.paginationIconsHoverEffect();
         this.articleLinkEventHandler();
+        this.commentsLinkEventHandler();
     }
 
     loadArticles(){
@@ -109,6 +110,12 @@ export default class ArticlesListManager extends ArticleManager{
     articleLinkEventHandler() {
         $('.articles-list').on('click', '.title, .article-intro', function() {
             window.location.href = `article.html?id=${$(this).parents('.article')[0].dataset.id}`;
+        })
+    }
+    
+    commentsLinkEventHandler() {
+        $('.articles-list').on('click', '.article-comments', function() {
+            window.location.href = `article.html?id=${$(this).parents('.article')[0].dataset.id}#comments-section`;
         })
     }
 
