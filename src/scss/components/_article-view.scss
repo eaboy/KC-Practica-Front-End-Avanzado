@@ -117,9 +117,17 @@
                     }
                 }
             }
-    
-            @include if-tablet-portrait {
+        }
+
+    @include if-tablet-portrait {
+        .article { 
+            .article-image{
+                height: 350px;
+            }
+            .article-text {
+                font-size: $font-size-h5;
             }
         }
+    }
 
 }

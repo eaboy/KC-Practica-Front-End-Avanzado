@@ -61,6 +61,9 @@ export default class ArticleViewManager extends ArticleManager{
     }
 
     watchToShowComments(){
+        if($('.comments').length === 0) {
+            return;
+        }
         var waypoint = new Waypoint({
             element: $('.comments')[0],
             handler: () => {
@@ -71,3 +74,5 @@ export default class ArticleViewManager extends ArticleManager{
         })
     }
 }
+
+90 18 140
