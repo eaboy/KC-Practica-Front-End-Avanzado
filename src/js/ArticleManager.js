@@ -3,11 +3,12 @@ var moment = require('moment');
 
 export default class ArticleManager{
 
-    constructor(contentService, uiManager, selector, likesStorage){
+    constructor(contentService, uiManager, selector, likesStorage, commentsService){
         this.contentService = contentService;
         this.uiManager = uiManager;
         this.element = $(selector);
         this.likesStorage = likesStorage;
+        this.commentsService = commentsService;
     }
 
 
@@ -83,6 +84,17 @@ export default class ArticleManager{
 
     likeIconChange(clickedElement) {
         clickedElement.children().toggleClass('fa-heart fa-heart-o');
+    }
+    
+    setNumberComments() {
+        let elements = $('.article');
+        for(let element of elements){
+            this.commentsService.listFiltered(`?article_id=${element.dataset.id}`, comments => { // Loads comments
+                $(element).find('.number-comments').text(comments.length);
+            }, error => {
+                console.log('Error:', error);
+            });
+        }
     }
         
 }

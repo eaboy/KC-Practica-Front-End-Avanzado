@@ -25,7 +25,7 @@ export default class Comments {
         }, error => {
             this.uiManager.setError();
             console.log('Error:', error);
-        })
+        });
     }
 
     renderComments(comments){

@@ -21,8 +21,8 @@ const articleUIManager = new UIManager('.article-view');
 const commentsUIManager = new UIManager('.comments');
 const footer = new Footer('.up-button', animation);
 
-const articlesListManager = new ArticlesListManager(articlesService, articlesUIManager, '.articles-list', likesLStorage);
-const articleViewManager = new ArticleViewManager(articlesService, articleUIManager, '.article-view', likesLStorage);
+const articlesListManager = new ArticlesListManager(articlesService, articlesUIManager, '.articles-list', likesLStorage, commentsService);
+const articleViewManager = new ArticleViewManager(articlesService, articleUIManager, '.article-view', likesLStorage, commentsService);
 const commentsViewManager = new CommentsViewManager(commentsService, commentsUIManager);
 articlesListManager.init();
 articleViewManager.init();

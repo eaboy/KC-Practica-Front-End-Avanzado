@@ -5,7 +5,6 @@ export default class ArticlesListManager extends ArticleManager{
 
     init(){
         this.loadArticles();
-        $(".article-intro").dotdotdot({watch:true}); // Adds the ellipsis
         this.setLikeEventHandler();
         this.videoControlsDisplay();
         this.paginationIconsHoverEffect();
@@ -32,32 +31,36 @@ export default class ArticlesListManager extends ArticleManager{
         for (let article of articles) {
             html += this.renderArticle(article);
         }
-
         this.uiManager.setIdealHtml(html);
+        this.setNumberComments();
+        $(".article-intro").dotdotdot({watch:true}); // Adds the ellipsis
     }
 
     renderArticle(article){
         let heartIconClass = '';
+        let articleMedia = this.getArticleMedia(article);
+        let authorPhoto = this.getArticlePhoto(article.photo_name);
+        let timePublishedAgo = this.publishedFromNow(article.publish_date);
+
         if(this.isLiked(`${article.id}`)[0]){
             heartIconClass = 'fa-heart';
         } else {
             heartIconClass = 'fa-heart-o';
         }
-
         return `<article class="article" data-id="${article.id}">      
-                    ${this.getArticleMedia(article)}
+                    ${articleMedia}
                     <h2 class="title">${article.title}</h2>
                     <p class="article-intro">${article.intro_text}</p>
                     <div class="article-info">
                         <div class="article-publish-container">
-                            <img src="./img/${this.getArticlePhoto(article.photo_name)}.png" alt="" class="author-photo">
+                            <img src="./img/${authorPhoto}.png" alt="" class="author-photo">
                             <div class="publish-info">
                                 <h5 class="author-name">${article.author}</h5>
-                                <div class="publish-time">Published ${this.publishedFromNow(article.publish_date)}</div>
+                                <div class="publish-time">Published ${timePublishedAgo}</div>
                             </div>
                         </div>
                         <div class="extras">
-                            <div class="article-comments"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="number-comments">${article.comments}</span></div>
+                            <div class="article-comments"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="number-comments">0</span></div>
                             <div class="like-icon"><i class="fa ${heartIconClass}" aria-hidden="true"></i></div>
                         </div>
                     </div>

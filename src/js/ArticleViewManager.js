@@ -17,6 +17,7 @@ export default class ArticleViewManager extends ArticleManager{
             let html = this.renderArticle(article);
             this.uiManager.setIdealHtml(html);
             this.uiManager.setIdeal();
+            this.setNumberComments();
         }, error => {
             this.uiManager.setError();
             console.log('Error:', error);
@@ -43,7 +44,7 @@ export default class ArticleViewManager extends ArticleManager{
                             </div>
                         </div>
                         <div class="extras">
-                            <div class="article-comments"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="number-comments">${article.comments}</span></div>
+                            <div class="article-comments"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="number-comments">0</span></div>
                             <div class="like-icon"><i class="fa ${heartIconClass}" aria-hidden="true"></i></div>
                         </div>
                     </div>
