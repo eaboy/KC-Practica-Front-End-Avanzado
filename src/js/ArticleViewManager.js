@@ -11,6 +11,7 @@ export default class ArticleViewManager extends ArticleManager{
     init(){
         this.loadArticle();
         this.setLikeEventHandler();
+        this.pubSub.subscribe('count-comments', () => this.setNumberComments());
     }
 
     loadArticle(){

@@ -159,6 +159,22 @@
       "email": "j.doe@person.com",
       "comment": "Thank you brother.",
       "id": 6
+    },
+    {
+      "article_id": "7",
+      "name": "Eduardo",
+      "last_name": "Aboy",
+      "email": "ddgh@sdf.com",
+      "comment": "Load comments after comment add test",
+      "id": 7
+    },
+    {
+      "article_id": "7",
+      "name": "Eduardo",
+      "last_name": "Aboy",
+      "email": "asdas@asdasd.com",
+      "comment": "Update comments number test",
+      "id": 8
     }
   ]
 }

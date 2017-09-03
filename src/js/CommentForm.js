@@ -2,10 +2,11 @@
 
 export default class CommentForm {
     
-    constructor(selector, commentService, uiManager){
+    constructor(selector, commentService, uiManager, pubSub){
         this.element = $(selector);
         this.commentService = commentService;
         this.uiManager = uiManager;
+        this.pubSub = pubSub;
     }
 
     init(){
@@ -26,7 +27,7 @@ export default class CommentForm {
     }
 
     isValid(){
-        const inputs = this.element.find('input');
+        const inputs = this.element.find('input, textarea');
         for (let input of inputs) {
             if (input.checkValidity() === false) {
                 const errorMessage = input.validationMessage;
@@ -51,10 +52,10 @@ export default class CommentForm {
         }
 
         this.commentService.save(comment, success => {
-            // TODO: recargar el listado de canciones
-            this.resetForm();// Resetea el form
+            this.resetForm();
             this.uiManager.setIdeal();
-            this.addComment(comment);
+            this.pubSub.publish('load-comments');
+            this.pubSub.publish('count-comments');
         }, error => {
             this.uiManager.setErrorHtml('An error has occured when saving the comment to server, please try again later.');
             this.uiManager.setError();
@@ -71,17 +72,6 @@ export default class CommentForm {
 
     enableFormControls() {
         this.element.find('input, button').attr('disabled', false);
-    }
-    
-    addComment(comment){
-        let html = `<article class="comment-content">
-                        <div class="comment-author">
-                            <h4 class="author">${comment.name} ${comment.last_name}:</h4>
-                        </div>
-                        <p class="comment">${comment.comment}</p>
-                    </article>`;
-
-        $('.comments').find('.ui-status.ideal').append(html);
     }
 
 }
