@@ -32,5 +32,16 @@ export default class APIService {
             error: errorCallback
         });
     }
+    
+    // Saves an item
+    save(item, successCallback, errorCallback) {
+        $.ajax({
+            url: this.url,
+            method: 'post',
+            data: item,
+            success: successCallback,
+            error: errorCallback
+        });
+    }
 
 }

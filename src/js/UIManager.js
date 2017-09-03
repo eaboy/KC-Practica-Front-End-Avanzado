@@ -31,4 +31,9 @@ export default class UIManager {
         // Searches for the child of the element that has the ui-status and ideal classes and assigns it an html
         this.element.find('.ui-status.ideal').html(html);
     }
+    
+    setErrorHtml(html) {
+        // Searches for the child of the element that has the ui-status and ideal classes and assigns it an html
+        this.element.find('.ui-status.error').html(html);
+    }
 }
