@@ -74,5 +74,3 @@ export default class ArticleViewManager extends ArticleManager{
         })
     }
 }
-
-90 18 140

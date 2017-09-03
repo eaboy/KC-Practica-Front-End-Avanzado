@@ -37,6 +37,11 @@ export default class CommentForm {
                 return false;
             }
         }
+        if(this.element.find('textarea').val().match(/\S+/g).length > 120) {
+            this.uiManager.setErrorHtml('120 word maximum allowed.');
+            this.uiManager.setError();
+            return false;
+        }
         this.uiManager.setIdeal();
         return true;
     }
