@@ -1,3 +1,4 @@
+import "babel-polyfill";
 window.$ = window.jQuery = require('jquery');
 var dotdotdot = require('dotdotdot');
 
