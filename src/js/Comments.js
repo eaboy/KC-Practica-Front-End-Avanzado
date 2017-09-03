@@ -1,12 +1,13 @@
 export default class Comments {
 
-    constructor(contentService, uiManager){
+    constructor(contentService, uiManager, pubSub){
         this.contentService = contentService;
         this.uiManager = uiManager;
+        this.pubSub = pubSub;
     }
 
     init(){
-        this.loadComments();
+        this.pubSub.subscribe('load-comments', () => this.loadComments());
     }
 
     loadComments(){

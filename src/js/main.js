@@ -10,6 +10,7 @@ import ArticlesListManager from './ArticlesListManager';
 import ArticleViewManager from './ArticleViewManager';
 import CommentsViewManager from './Comments';
 import CommentFormManager from './CommentForm';
+import PubSub from 'pubsub-js';
 import Footer from './Footer';
 
 const header = new Header(Animations);
@@ -24,8 +25,8 @@ const commentFormUIManager = new UIManager('.comment-form');
 const footer = new Footer('.up-button', animation);
 
 const articlesListManager = new ArticlesListManager(articlesService, articlesUIManager, '.articles-list', likesLStorage, commentsService);
-const articleViewManager = new ArticleViewManager(articlesService, articleUIManager, '.article-view', likesLStorage, commentsService);
-const commentsViewManager = new CommentsViewManager(commentsService, commentsUIManager);
+const articleViewManager = new ArticleViewManager(articlesService, articleUIManager, '.article-view', likesLStorage, commentsService, PubSub);
+const commentsViewManager = new CommentsViewManager(commentsService, commentsUIManager, PubSub);
 const commentFormManager = new CommentFormManager('.comment-form', commentsService, commentFormUIManager);
 articlesListManager.init();
 articleViewManager.init();

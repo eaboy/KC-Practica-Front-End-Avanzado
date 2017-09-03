@@ -3,6 +3,11 @@ require('waypoints/lib/noframework.waypoints');
 
 export default class ArticleViewManager extends ArticleManager{
 
+    constructor(contentService, uiManager, selector, likesStorage, commentsService, pubSub){
+        super(contentService, uiManager, selector, likesStorage, commentsService);
+        this.pubSub = pubSub;
+    }
+
     init(){
         this.loadArticle();
         this.setLikeEventHandler();
@@ -57,9 +62,9 @@ export default class ArticleViewManager extends ArticleManager{
     watchToShowComments(){
         var waypoint = new Waypoint({
             element: $('.comments')[0],
-            handler: function() {
+            handler: () => {
+                this.pubSub.publish('load-comments');
                 Waypoint.destroyAll();
-                console.log('Basic waypoint triggered');
             },
             offset: '100%'
         })
