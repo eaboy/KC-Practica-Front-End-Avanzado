@@ -56,7 +56,7 @@ export default class CommentForm {
             this.uiManager.setIdeal();
             this.addComment(comment);
         }, error => {
-            this.uiManager.setErrorHtml('Se ha producido un error al guardar la canción en el servidor.');
+            this.uiManager.setErrorHtml('An error has occured when saving the comment to server, please try again later.');
             this.uiManager.setError();
         });
     }

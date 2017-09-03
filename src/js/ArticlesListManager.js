@@ -116,6 +116,7 @@ export default class ArticlesListManager extends ArticleManager{
     commentsLinkEventHandler() {
         $('.articles-list').on('click', '.article-comments', function() {
             window.location.href = `article.html?id=${$(this).parents('.article')[0].dataset.id}#comments-section`;
+            return false;
         })
     }
 

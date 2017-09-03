@@ -51,7 +51,7 @@ export default class ArticleViewManager extends ArticleManager{
                             </div>
                         </div>
                         <div class="extras">
-                            <div class="article-comments"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="number-comments">0</span></div>
+                            <div class="article-comments"><a href="#comments-section"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="number-comments">0</span></a></div>
                             <div class="like-icon"><i class="fa ${heartIconClass}" aria-hidden="true"></i></div>
                         </div>
                     </div>

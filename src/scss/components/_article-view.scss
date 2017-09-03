@@ -98,6 +98,9 @@
                         &:hover {
                             transform: scale(1.1,1.1);
                         }
+                        a{
+                            color: $titles-color;
+                        }
                         .number-comments{
                             position: absolute;
                             right: 0;
