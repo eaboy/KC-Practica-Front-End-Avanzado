@@ -1,0 +1,46 @@
+.comment-form{
+    
+    .ui-status{display: none;}
+    &.loading {
+        .ui-status.loading {
+            display: block;
+            .fa-circle-o-notch {
+                margin-top: 15px;
+            }
+        }
+    }
+    &.error {
+        .ui-status.error {
+            display: block;
+        }
+    }
+
+    &.error, &.loading {
+        font-size: $font-size-large;
+        text-align: center;
+        padding: 20px 50px;
+    }
+
+    &.ideal {
+        margin: 10px;
+        font-size: $font-size-h5;
+        .ui-status.ideal {
+            display: block;
+            padding: 5px 10px;
+            .form-control-group{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+                input, textarea {
+                    width: 65%;
+                }
+
+                @include if-tablet-portrait {
+                    width: calc(50% - 10px);
+                    float: left;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

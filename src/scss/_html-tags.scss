@@ -27,3 +27,25 @@ b {
 i {
   font-style: italic;
 }
+
+input, textarea {
+  font-family: $main-font-family;
+  &:focus {
+    outline-color: $titles-color;
+  }
+}
+
+textarea{
+  margin-bottom: 5px;
+  resize: none;
+}
+
+button{
+  background: $titles-color;
+  color: $bg-primary-color;
+  border: none;
+  padding: 10px;
+  &:focus{
+    outline-color: $main-text-color;
+  }
+}
